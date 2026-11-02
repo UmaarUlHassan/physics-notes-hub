@@ -3,71 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Physics Learning Hub | Lecture Notes & Practice Material</title>
-  <meta name="description" content="Free comprehensive Physics notes, solved numericals, and board preparation material for Matric and FSc students.">
+  <title>Quantum Physics Hub | Premium Notes & Resources</title>
+  <meta name="description" content="Advanced physics lecture notes, conceptual guides, and solved numerical repositories.">
   <style>
     :root {
-      --primary: #1e3a8a;
-      --primary-hover: #1e40af;
-      --accent: #2563eb;
-      --bg-main: #f8fafc;
-      --surface: #ffffff;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --border: #e2e8f0;
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --radius: 10px;
+      --bg-base: #090d16;
+      --surface: #111827;
+      --surface-glass: rgba(17, 24, 39, 0.75);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(59, 130, 246, 0.4);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --accent: #3b82f6;
+      --accent-glow: rgba(59, 130, 246, 0.25);
+      --cyan-glow: rgba(6, 182, 212, 0.15);
+      --radius: 12px;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
 
     body {
-      background-color: var(--bg-main);
+      background-color: var(--bg-base);
       color: var(--text-main);
       line-height: 1.6;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 15% 15%, var(--accent-glow) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, var(--cyan-glow) 0%, transparent 40%);
+      background-attachment: fixed;
     }
 
-    /* --- Navigation Bar --- */
+    /* --- Header / Navbar --- */
     header {
-      background-color: var(--surface);
-      border-bottom: 1px solid var(--border);
+      background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: var(--shadow-sm);
     }
 
     .nav-container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 16px 20px;
+      padding: 16px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .brand {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
-      color: var(--primary);
+      color: #ffffff;
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+      letter-spacing: -0.3px;
+    }
+
+    .brand-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
     }
 
     .nav-links {
       display: flex;
-      gap: 20px;
+      gap: 24px;
       list-style: none;
     }
 
@@ -75,136 +92,132 @@
       text-decoration: none;
       color: var(--text-muted);
       font-weight: 500;
-      font-size: 15px;
+      font-size: 14px;
       transition: color 0.2s ease;
     }
 
     .nav-links a:hover, .nav-links a.active {
-      color: var(--accent);
+      color: #ffffff;
     }
 
     /* --- Main Container --- */
     main {
       flex: 1;
-      max-width: 1100px;
+      max-width: 1200px;
       width: 100%;
       margin: 0 auto;
-      padding: 32px 20px;
+      padding: 40px 24px;
     }
 
     /* --- Hero Section --- */
     .hero {
-      background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
-      color: white;
-      padding: 40px 30px;
-      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(12px);
+      padding: 48px 40px;
+      border-radius: 16px;
       margin-bottom: 36px;
-      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; width: 300px; height: 100%;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+      pointer-events: none;
     }
 
     .hero h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-      font-weight: 700;
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+      color: #ffffff;
     }
 
     .hero p {
-      color: #cbd5e1;
-      font-size: 16px;
-      max-width: 650px;
-    }
-
-    /* --- Category Filter Tabs --- */
-    .tabs {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 24px;
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 8px;
-      overflow-x: auto;
-    }
-
-    .tab-btn {
-      background: none;
-      border: none;
-      padding: 8px 16px;
-      font-size: 15px;
-      font-weight: 600;
       color: var(--text-muted);
-      cursor: pointer;
-      border-radius: 6px;
-      transition: all 0.2s ease;
-      white-space: nowrap;
+      font-size: 16px;
+      max-width: 600px;
+      line-height: 1.5;
     }
 
-    .tab-btn.active, .tab-btn:hover {
-      background-color: #eff6ff;
-      color: var(--accent);
+    /* --- Section Title --- */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
     }
 
-    /* --- Chapters Grid --- */
     .section-title {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
-      margin-bottom: 16px;
+      color: #ffffff;
+      letter-spacing: -0.2px;
     }
 
+    /* --- Cards Grid --- */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 20px;
-      margin-bottom: 40px;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
     }
 
     .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: var(--surface-glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color);
       border-radius: var(--radius);
-      padding: 20px;
-      box-shadow: var(--shadow-sm);
+      padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
     }
 
     .card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .card-header {
-      margin-bottom: 16px;
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+      box-shadow: 0 12px 30px -10px rgba(59, 130, 246, 0.2);
     }
 
     .card-badge {
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--accent);
-      background-color: #eff6ff;
-      padding: 4px 8px;
-      border-radius: 4px;
+      letter-spacing: 0.8px;
+      color: #60a5fa;
+      background: rgba(59, 130, 246, 0.12);
+      padding: 4px 10px;
+      border-radius: 6px;
       display: inline-block;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(59, 130, 246, 0.2);
     }
 
     .card h3 {
-      font-size: 17px;
-      color: var(--text-main);
-      margin-bottom: 6px;
+      font-size: 18px;
+      color: #ffffff;
+      margin-bottom: 8px;
+      font-weight: 600;
     }
 
     .card p {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.5;
     }
 
     .card-actions {
       display: flex;
-      gap: 10px;
-      margin-top: 16px;
+      gap: 12px;
     }
 
     .btn {
@@ -212,136 +225,128 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      padding: 9px 14px;
+      gap: 8px;
+      padding: 10px 16px;
       font-size: 13px;
       font-weight: 600;
       text-decoration: none;
-      border-radius: 6px;
-      transition: background 0.2s ease;
+      border-radius: 8px;
+      transition: all 0.2s ease;
       cursor: pointer;
-      border: none;
     }
 
     .btn-primary {
-      background-color: var(--accent);
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
       color: white;
+      border: none;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
     }
 
     .btn-primary:hover {
-      background-color: var(--primary-hover);
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
     }
 
     .btn-secondary {
-      background-color: #f1f5f9;
+      background: rgba(255, 255, 255, 0.05);
       color: var(--text-main);
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-color);
     }
 
     .btn-secondary:hover {
-      background-color: #e2e8f0;
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
     }
 
     /* --- Footer --- */
     footer {
-      background-color: var(--surface);
-      border-top: 1px solid var(--border);
-      padding: 24px 20px;
+      background: rgba(9, 13, 22, 0.9);
+      border-top: 1px solid var(--border-color);
+      padding: 32px 24px;
       text-align: center;
       color: var(--text-muted);
-      font-size: 14px;
+      font-size: 13px;
     }
 
     @media (max-width: 640px) {
-      .nav-container { flex-direction: column; gap: 12px; }
+      .nav-container { flex-direction: column; gap: 16px; }
+      .hero { padding: 32px 24px; }
       .grid { grid-template-columns: 1fr; }
-      .hero { padding: 24px 20px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Navigation Header -->
+  <!-- Navigation -->
   <header>
     <div class="nav-container">
       <a href="index.html" class="brand">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <div class="brand-icon">⚡</div>
         Physics Hub
       </a>
       <ul class="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="#fsc1">FSc Part 1</a></li>
         <li><a href="#fsc2">FSc Part 2</a></li>
-        <li><a href="#matric">Matric</a></li>
       </ul>
     </div>
   </header>
 
-  <!-- Main Content Area -->
+  <!-- Main Content -->
   <main>
-    <!-- Hero Banner -->
     <section class="hero">
-      <h1>Physics Resource Portal</h1>
-      <p>Access high-quality chapter notes, step-by-step solved numericals, conceptual questions, and exam preparation material.</p>
+      <h1>Advanced Physics Repository</h1>
+      <p>Precision curated lecture notes, step-by-step solved numericals, and comprehensive concept archives designed for high academic achievement.</p>
     </section>
 
-    <!-- Category Selector Tabs -->
-    <div class="tabs">
-      <button class="tab-btn active">All Resources</button>
-      <button class="tab-btn">Class 11 (FSc 1)</button>
-      <button class="tab-btn">Class 12 (FSc 2)</button>
-      <button class="tab-btn">Class 9th & 10th</button>
+    <div class="section-header">
+      <h2 class="section-title">Class 11 — FSc Part 1 Modules</h2>
     </div>
 
-    <!-- Chapter Grid Section -->
-    <h2 class="section-title">Class 11 — FSc Part 1</h2>
     <div class="grid" id="fsc1">
-      
-      <!-- Chapter Card 1 -->
+      <!-- Card 1 -->
       <article class="card">
-        <div class="card-header">
+        <div>
           <span class="card-badge">Chapter 01</span>
           <h3>Measurements & Vectors</h3>
-          <p>System of units, error analysis, vector addition by rectangular components, and dot/cross products.</p>
+          <p>Comprehensive error analysis frameworks, dimensional analysis, and vector component calculations.</p>
         </div>
         <div class="card-actions">
-          <a href="https://drive.google.com/file/d/YOUR_FILE_ID_1/view" target="_blank" class="btn btn-secondary">View PDF</a>
-          <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_1" class="btn btn-primary">Download</a>
+          <a href="https://drive.google.com/file/d/YOUR_FILE_ID/view" target="_blank" class="btn btn-secondary">Preview</a>
+          <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID" class="btn btn-primary">Download PDF</a>
         </div>
       </article>
 
-      <!-- Chapter Card 2 -->
+      <!-- Card 2 -->
       <article class="card">
-        <div class="card-header">
+        <div>
           <span class="card-badge">Chapter 03</span>
           <h3>Motion and Force</h3>
-          <p>Displacement-time graphs, Newton's laws, momentum conservation, and projectile motion dynamics.</p>
+          <p>Momentum conservation equations, impulse dynamics, and projectile motion trajectory matrices.</p>
         </div>
         <div class="card-actions">
-          <a href="https://drive.google.com/file/d/YOUR_FILE_ID_2/view" target="_blank" class="btn btn-secondary">View PDF</a>
-          <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_2" class="btn btn-primary">Download</a>
+          <a href="https://drive.google.com/file/d/YOUR_FILE_ID/view" target="_blank" class="btn btn-secondary">Preview</a>
+          <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID" class="btn btn-primary">Download PDF</a>
         </div>
       </article>
 
-      <!-- Chapter Card 3 -->
+      <!-- Card 3 -->
       <article class="card">
-        <div class="card-header">
+        <div>
           <span class="card-badge">Chapter 05</span>
-          <h3>Rotational & Circular Motion</h3>
-          <p>Angular velocity, centripetal force, moment of inertia, and angular momentum principles.</p>
+          <h3>Circular Dynamics</h3>
+          <p>Centripetal acceleration profiles, angular momentum conservation, and moment of inertia derivations.</p>
         </div>
         <div class="card-actions">
-          <a href="https://drive.google.com/file/d/YOUR_FILE_ID_3/view" target="_blank" class="btn btn-secondary">View PDF</a>
-          <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_3" class="btn btn-primary">Download</a>
+          <a href="https://drive.google.com/file/d/YOUR_FILE_ID/view" target="_blank" class="btn btn-secondary">Preview</a>
+          <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID" class="btn btn-primary">Download PDF</a>
         </div>
       </article>
-
     </div>
   </main>
 
-  <!-- Footer -->
   <footer>
-    <p>© 2026 Physics Learning Hub • Hosted on Cloudflare Pages</p>
+    <p>© 2026 Physics Learning Hub • High-Performance Cloudflare Edge Hosting</p>
   </footer>
 
 </body>
