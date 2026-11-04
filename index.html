@@ -3,21 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quantum Physics Hub | Premium Notes & Resources</title>
-  <meta name="description" content="Advanced physics lecture notes, conceptual guides, and solved numerical repositories.">
+  <title>Physics with Umaar Ul Hassan | Expert Lectures & Notes</title>
   <style>
     :root {
-      --bg-base: #090d16;
-      --surface: #111827;
-      --surface-glass: rgba(17, 24, 39, 0.75);
+      --bg-color: #0b0f19;
+      --card-bg: #111827;
       --border-color: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(59, 130, 246, 0.4);
-      --text-main: #f3f4f6;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --text-main: #f9fafb;
       --text-muted: #9ca3af;
-      --accent: #3b82f6;
-      --accent-glow: rgba(59, 130, 246, 0.25);
-      --cyan-glow: rgba(6, 182, 212, 0.15);
-      --radius: 12px;
+      --accent-glow: rgba(37, 99, 235, 0.2);
+      --radius: 14px;
     }
 
     * {
@@ -28,26 +25,22 @@
     }
 
     body {
-      background-color: var(--bg-base);
+      background-color: var(--bg-color);
       color: var(--text-main);
       line-height: 1.6;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      background-image: 
-        radial-gradient(circle at 15% 15%, var(--accent-glow) 0%, transparent 40%),
-        radial-gradient(circle at 85% 85%, var(--cyan-glow) 0%, transparent 40%);
-      background-attachment: fixed;
     }
 
-    /* --- Header / Navbar --- */
+    /* --- Navbar --- */
     header {
-      background: rgba(9, 13, 22, 0.85);
-      backdrop-filter: blur(16px);
+      background: rgba(11, 15, 25, 0.9);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-color);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
     }
 
     .nav-container {
@@ -60,47 +53,61 @@
     }
 
     .brand {
-      font-size: 18px;
-      font-weight: 700;
-      color: #ffffff;
-      text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 10px;
-      letter-spacing: -0.3px;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 700;
+      font-size: 18px;
     }
 
-    .brand-icon {
-      width: 32px;
-      height: 32px;
-      background: linear-gradient(135deg, #3b82f6, #06b6d4);
-      border-radius: 8px;
+    .brand-avatar {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #2563eb, #06b6d4);
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-weight: bold;
       color: white;
-      box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+      box-shadow: 0 0 15px var(--accent-glow);
     }
 
     .nav-links {
       display: flex;
       gap: 24px;
       list-style: none;
+      align-items: center;
     }
 
     .nav-links a {
       text-decoration: none;
       color: var(--text-muted);
-      font-weight: 500;
       font-size: 14px;
-      transition: color 0.2s ease;
+      font-weight: 500;
+      transition: color 0.2s;
     }
 
-    .nav-links a:hover, .nav-links a.active {
-      color: #ffffff;
+    .nav-links a:hover {
+      color: #fff;
     }
 
-    /* --- Main Container --- */
+    .nav-btn {
+      background-color: var(--primary);
+      color: white !important;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .nav-btn:hover {
+      background-color: var(--primary-hover);
+    }
+
+    /* --- Main Layout --- */
     main {
       flex: 1;
       max-width: 1200px;
@@ -111,167 +118,139 @@
 
     /* --- Hero Section --- */
     .hero {
-      background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
+      background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
       border: 1px solid var(--border-color);
-      backdrop-filter: blur(12px);
-      padding: 48px 40px;
-      border-radius: 16px;
-      margin-bottom: 36px;
+      border-radius: 20px;
+      padding: 50px 40px;
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0; right: 0; width: 300px; height: 100%;
-      background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero h1 {
+    .hero-content h1 {
       font-size: 32px;
       font-weight: 800;
       margin-bottom: 12px;
       letter-spacing: -0.5px;
-      color: #ffffff;
     }
 
-    .hero p {
+    .hero-content p {
       color: var(--text-muted);
       font-size: 16px;
       max-width: 600px;
-      line-height: 1.5;
+      margin-bottom: 24px;
     }
 
-    /* --- Section Title --- */
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
+    .hero-badge {
+      display: inline-block;
+      background: rgba(37, 99, 235, 0.15);
+      color: #60a5fa;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      border: 1px solid rgba(37, 99, 235, 0.3);
     }
 
+    /* --- Category Grid --- */
     .section-title {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 700;
-      color: #ffffff;
-      letter-spacing: -0.2px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    /* --- Cards Grid --- */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 24px;
-      margin-bottom: 48px;
+      margin-bottom: 40px;
     }
 
     .card {
-      background: var(--surface-glass);
-      backdrop-filter: blur(12px);
+      background-color: var(--card-bg);
       border: 1px solid var(--border-color);
       border-radius: var(--radius);
       padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
+      transition: transform 0.2s, border-color 0.2s;
     }
 
     .card:hover {
       transform: translateY(-4px);
-      border-color: var(--border-hover);
-      box-shadow: 0 12px 30px -10px rgba(59, 130, 246, 0.2);
-    }
-
-    .card-badge {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: #60a5fa;
-      background: rgba(59, 130, 246, 0.12);
-      padding: 4px 10px;
-      border-radius: 6px;
-      display: inline-block;
-      margin-bottom: 12px;
-      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-color: rgba(37, 99, 235, 0.5);
     }
 
     .card h3 {
       font-size: 18px;
-      color: #ffffff;
       margin-bottom: 8px;
-      font-weight: 600;
     }
 
     .card p {
-      font-size: 14px;
       color: var(--text-muted);
-      margin-bottom: 24px;
-      line-height: 1.5;
+      font-size: 13px;
+      margin-bottom: 20px;
     }
 
-    .card-actions {
+    .card-footer {
       display: flex;
-      gap: 12px;
+      gap: 10px;
     }
 
     .btn {
       flex: 1;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 10px 16px;
+      padding: 10px;
+      border-radius: 8px;
       font-size: 13px;
       font-weight: 600;
+      text-align: center;
       text-decoration: none;
-      border-radius: 8px;
-      transition: all 0.2s ease;
       cursor: pointer;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #3b82f6, #2563eb);
-      color: white;
       border: none;
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+      transition: background 0.2s;
     }
 
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
-    }
-
-    .btn-secondary {
+    .btn-outline {
       background: rgba(255, 255, 255, 0.05);
-      color: var(--text-main);
+      color: #fff;
       border: 1px solid var(--border-color);
     }
 
-    .btn-secondary:hover {
+    .btn-outline:hover {
       background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-solid {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .btn-solid:hover {
+      background-color: var(--primary-hover);
     }
 
     /* --- Footer --- */
     footer {
-      background: rgba(9, 13, 22, 0.9);
+      background: #0b0f19;
       border-top: 1px solid var(--border-color);
-      padding: 32px 24px;
+      padding: 30px 24px;
       text-align: center;
       color: var(--text-muted);
       font-size: 13px;
     }
 
-    @media (max-width: 640px) {
-      .nav-container { flex-direction: column; gap: 16px; }
-      .hero { padding: 32px 24px; }
-      .grid { grid-template-columns: 1fr; }
+    @media (max-width: 768px) {
+      .hero { flex-direction: column; padding: 30px 20px; text-align: center; }
+      .nav-links { display: none; }
     }
   </style>
 </head>
@@ -281,72 +260,75 @@
   <header>
     <div class="nav-container">
       <a href="index.html" class="brand">
-        <div class="brand-icon">⚡</div>
-        Physics Hub
+        <div class="brand-avatar">U</div>
+        Physics with Umaar
       </a>
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="#fsc1">FSc Part 1</a></li>
-        <li><a href="#fsc2">FSc Part 2</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#notes">Study Material</a></li>
+        <li><a href="https://wa.me/yourwhatsapp" target="_blank" class="nav-btn">Contact / WhatsApp</a></li>
       </ul>
     </div>
   </header>
 
   <!-- Main Content -->
   <main>
+    <!-- Hero Banner -->
     <section class="hero">
-      <h1>Advanced Physics Repository</h1>
-      <p>Precision curated lecture notes, step-by-step solved numericals, and comprehensive concept archives designed for high academic achievement.</p>
+      <div class="hero-content">
+        <span class="hero-badge">Concepts Academy • Attock</span>
+        <h1>Master Physics with Clear Concepts & Structured Notes</h1>
+        <p>Access high-definition lecture notes, step-by-step solved numericals, and board exam preparation material designed for Matric and FSc students.</p>
+        <a href="#classes" class="btn btn-solid" style="display:inline-block; width:auto; padding: 12px 24px;">Explore Classes</a>
+      </div>
     </section>
 
-    <div class="section-header">
-      <h2 class="section-title">Class 11 — FSc Part 1 Modules</h2>
-    </div>
+    <!-- Classes Section -->
+    <div id="classes">
+      <h2 class="section-title">📚 Select Your Class / Program</h2>
+      <div class="grid">
+        
+        <div class="card">
+          <div>
+            <h3>FSc Part 1 (Class 11)</h3>
+            <p>Complete chapter notes, numerical solutions, and conceptual short questions for 1st Year Physics.</p>
+          </div>
+          <div class="card-footer">
+            <a href="assets/pdfs/fsc1-notes.pdf" target="_blank" class="btn btn-outline">Preview</a>
+            <a href="assets/pdfs/fsc1-notes.pdf" download class="btn btn-solid">Download</a>
+          </div>
+        </div>
 
-    <div class="grid" id="fsc1">
-      <!-- Card 1 -->
-      <article class="card">
-        <div>
-          <span class="card-badge">Chapter 01</span>
-          <h3>Measurements & Vectors</h3>
-          <p>Comprehensive error analysis frameworks, dimensional analysis, and vector component calculations.</p>
+        <div class="card">
+          <div>
+            <h3>FSc Part 2 (Class 12)</h3>
+            <p>Electromagnetism, Modern Physics, Nuclear physics notes and previous board exam papers.</p>
+          </div>
+          <div class="card-footer">
+            <a href="assets/pdfs/fsc2-notes.pdf" target="_blank" class="btn btn-outline">Preview</a>
+            <a href="assets/pdfs/fsc2-notes.pdf" download class="btn btn-solid">Download</a>
+          </div>
         </div>
-        <div class="card-actions">
-          <a href="https://drive.google.com/file/d/YOUR_FILE_ID/view" target="_blank" class="btn btn-secondary">Preview</a>
-          <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID" class="btn btn-primary">Download PDF</a>
-        </div>
-      </article>
 
-      <!-- Card 2 -->
-      <article class="card">
-        <div>
-          <span class="card-badge">Chapter 03</span>
-          <h3>Motion and Force</h3>
-          <p>Momentum conservation equations, impulse dynamics, and projectile motion trajectory matrices.</p>
+        <div class="card">
+          <div>
+            <h3>Matric (Class 9th & 10th)</h3>
+            <p>Simplified notes, numerical problem guides, and quick revision sheets for school board exams.</p>
+          </div>
+          <div class="card-footer">
+            <a href="assets/pdfs/matric-notes.pdf" target="_blank" class="btn btn-outline">Preview</a>
+            <a href="assets/pdfs/matric-notes.pdf" download class="btn btn-solid">Download</a>
+          </div>
         </div>
-        <div class="card-actions">
-          <a href="https://drive.google.com/file/d/YOUR_FILE_ID/view" target="_blank" class="btn btn-secondary">Preview</a>
-          <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID" class="btn btn-primary">Download PDF</a>
-        </div>
-      </article>
 
-      <!-- Card 3 -->
-      <article class="card">
-        <div>
-          <span class="card-badge">Chapter 05</span>
-          <h3>Circular Dynamics</h3>
-          <p>Centripetal acceleration profiles, angular momentum conservation, and moment of inertia derivations.</p>
-        </div>
-        <div class="card-actions">
-          <a href="https://drive.google.com/file/d/YOUR_FILE_ID/view" target="_blank" class="btn btn-secondary">Preview</a>
-          <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID" class="btn btn-primary">Download PDF</a>
-        </div>
-      </article>
+      </div>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <p>© 2026 Physics Learning Hub • High-Performance Cloudflare Edge Hosting</p>
+    <p>© 2026 Physics Hub by Umaar Ul Hassan • Powered by Cloudflare Pages</p>
   </footer>
 
 </body>
